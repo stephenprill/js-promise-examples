@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/rsvp/rsvp.js"></script>
+    <script charset="utf-8">
+      window.promise = new RSVP.Promise(function (resolve, reject) {
+        // when the user clicks the "resolve" button, resolve the promise
+        $(document).on('click', '#good-stuff', function () {
+          resolve();
+        });
+
+        $(document).on('click', '#denied', function () {
+          reject();
+        });
+      });
+
+      promise.then(function () {
+        console.log("Yay!  I was resolved.");
+      }, function () {
+        console.log("So sad.... I was rejected.");
+      })
+    </script>
+  </head>
+  <body>
+    <h1>
+      <a href="index.html">Example 1</a>
+      |
+      <a href="simulating-events.html">Example 2</a>
+      |
+      <a href="ajax.html">AJAX</a>
+      |
+      <a href="chaining.html">Chaining</a>
+      |
+      <a href="playground.html">Playground</a>
+    </h1>
+    <button id="good-stuff">Resolve</button>
+    <button id="denied">Reject</button>
+  </body>
+</html>

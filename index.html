@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/rsvp/rsvp.js"></script>
+    <script charset="utf-8">
+      window.promise = new RSVP.Promise(function (resolve, reject) {
+        setTimeout(function (){
+          resolve("- dary!  Legendary.");
+        }, 2000)
+      });
+
+      promise.then(function (someMessage) {
+        console.log(someMessage)
+      });
+
+      console.log("Legend - wait for it...");
+    </script>
+  </head>
+  <body>
+    <h1>
+      <a href="index.html">Example 1</a>
+      |
+      <a href="simulating-events.html">Example 2</a>
+      |
+      <a href="ajax.html">AJAX</a>
+      |
+      <a href="playground.html">Playground</a>
+    </h1>
+    <p>
+      Check the console.
+    </p>
+  </body>
+</html>

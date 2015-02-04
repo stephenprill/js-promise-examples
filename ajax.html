@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/rsvp/rsvp.js"></script>
+    <script charset="utf-8">
+      window.promise = new RSVP.Promise(function (resolve, reject) {
+
+        // this is a low-level AJAX call (jQuery normally takes care of this)
+        var client = new XMLHttpRequest();
+        client.open("GET", 'lots-of.json');
+        client.onreadystatechange = handler;
+        client.responseType = "json";
+        client.setRequestHeader("Accept", "application/json");
+        client.send();
+
+        function handler() {
+          if (this.readyState === this.DONE) {
+            if (this.status === 200) { resolve(this.response); }
+            else { reject(this); }
+          }
+        };
+      });
+
+      promise.then(function (response) {
+        console.log("The ajax call completed!  Here's the response...")
+        console.log(response);
+      })
+    </script>
+  </head>
+  <body>
+    <h1>
+      <a href="index.html">Example 1</a>
+      |
+      <a href="simulating-events.html">Example 2</a>
+      |
+      <a href="ajax.html">AJAX</a>
+      |
+      <a href="chaining.html">Chaining</a>
+      |
+      <a href="playground.html">Playground</a>
+    </h1>
+    <p>
+      Check the console.
+    </p>
+  </body>
+</html>

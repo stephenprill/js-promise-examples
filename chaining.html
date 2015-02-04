@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/rsvp/rsvp.js"></script>
+    <script charset="utf-8">
+      window.promise = new RSVP.Promise(function (resolve, reject) {
+
+        // this is a low-level AJAX call (jQuery normally takes care of this)
+        var client = new XMLHttpRequest();
+        client.open("GET", 'lots-of.json');
+        client.onreadystatechange = handler;
+        client.responseType = "json";
+        client.setRequestHeader("Accept", "application/json");
+        client.send();
+
+        function handler() {
+          if (this.readyState === this.DONE) {
+            if (this.status === 200) { resolve(this.response); }
+            else { reject(this); }
+          }
+        };
+      });
+
+      promise.then(function (response) {
+        console.log('-----------------');
+        console.log("The first `then` got called with ", response);
+        console.log("The first `then` will return ", response.people);
+        return response.people;
+      }).then(function (people) {
+        console.log('-----------------');
+        console.log("The second `then` got called with ", people);
+        console.log("The second `then` will return ", people[0]);
+        return people[0];
+      }).then(function (person) {
+        console.log('-----------------');
+        console.log("The third `then` got called with ", person)
+      });
+
+      promise.then(function (response) {
+        console.log('-----------------');
+        console.log("But the non-chained `then` gets", response);
+      })
+
+      console.log("I get called before all of the promise callbacks...");
+
+      // console.log(promise);
+      // console.log(promise.then(function () { }));
+      // console.log(promise.then);
+    </script>
+  </head>
+  <body>
+    <h1>
+      <a href="index.html">Example 1</a>
+      |
+      <a href="simulating-events.html">Example 2</a>
+      |
+      <a href="ajax.html">AJAX</a>
+      |
+      <a href="chaining.html">Chaining</a>
+      |
+      <a href="playground.html">Playground</a>
+    </h1>
+    <p>
+      Check the console.
+    </p>
+  </body>
+</html>

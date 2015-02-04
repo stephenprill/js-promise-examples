@@ -1,0 +1,19 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "first_name": "Sue",
+      "last_name": "Sylvester"
+    },
+    {
+      "id": 2,
+      "first_name": "Will",
+      "last_name": "Schuester"
+    },
+    {
+      "id": 3,
+      "first_name": "Emma",
+      "last_name": "Pillsbury"
+    }
+  ]
+}
