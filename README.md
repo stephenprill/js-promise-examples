@@ -1,3 +1,5 @@
 # Promise Examples
 
-Run `http-server` to see it.  Open the console.
+Clone, then run `bower install`.
+
+Run `http-server` to see it.
