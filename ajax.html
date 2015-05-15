@@ -9,7 +9,7 @@
       window.promise = new RSVP.Promise(function (resolve, reject) {
 
         // this is a low-level AJAX call (jQuery normally takes care of this)
-        var client = new XMLHttpRequest();
+        var client = new XMLHttpRequest(); //every browser has one
         client.open("GET", 'lots-of.json');
         client.onreadystatechange = handler;
         client.responseType = "json";

@@ -16,7 +16,12 @@
           reject();
         });
       });
-
+//example 2
+// newPromise (that creats the box)
+//.then
+//resolve button (when user clicks it goes up and says you're ok and fufilled)
+// promise is just an object, sits in memory
+// if you hit resolve or reject again won't do shit because it's only one promises- can only be resolved or rejected once 
       promise.then(function () {
         console.log("Yay!  I was resolved.");
       }, function () {
